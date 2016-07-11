@@ -14,16 +14,18 @@ Imports System.Collections.Specialized
 
 Module Functions
 
-    Public Sub GetAlerts()
-        Dim AlertNotifier = New Notifier1
+    Public Sub GetAlerts(ByVal Optional DaysBeforeNow As Integer = -20)
+        ' Dim AlertNotifier = New Notifier1
         'Form1.RestClient.Authenticate()
-        Dim a = Form1.RestClient.Functions.Alert.GetAlertsWithCounts()
+        Dim a = Form_Hide.RestClient.Functions.Alert.GetAlertsWithCounts()
 
         If a.Success = True Then
             For Each e In a.Data.entities
-                'If e.createDate > TimeOfDay.AddMinutes(-1) Then
-                AlertNotifier.shownotification(e.description & " " & e.createDate.ToString, "New Alert: " & e.artifactName.ToString, Form1.image, 10000)
-                'End If
+                If e.createDate > Today.AddDays(DaysBeforeNow) Then
+
+                    Dim alertnote As New Form_Alert
+                    alertnote.shownotification(e.createDate, e.artifactName, Form_Hide.image, 5000)
+                End If
             Next
         End If
 

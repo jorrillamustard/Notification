@@ -1,4 +1,4 @@
-Public Class Notifier1
+Public Class Form_Alert
     Public timer As New Timer
     Public i As Integer = 0
     Public endtimer As New Timer
@@ -46,6 +46,8 @@ Public Class Notifier1
         timer.Stop()
         timer.Enabled = False
         i = 0
-        My.Computer.Audio.PlaySystemSound(Media.SystemSounds.Asterisk)
+        If My.Settings.Sound = True Then
+            My.Computer.Audio.PlaySystemSound(Media.SystemSounds.Asterisk)
+        End If
     End Sub
 End Class

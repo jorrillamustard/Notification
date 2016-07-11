@@ -13,7 +13,7 @@ Imports System.Configuration
 Imports System.Collections.Specialized
 
 
-Public Class Form1
+Public Class Form_Hide
     Public RestClient As New Global.FEPRestClient.Client
     Public image As System.Drawing.Image
 
@@ -27,7 +27,7 @@ Public Class Form1
     End Sub
 
     Private Sub ConfigureToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConfigureToolStripMenuItem.Click
-        Configure.Show()
+        Form_Configure.Show()
 
     End Sub
 
@@ -45,11 +45,6 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        If RestClient.IsAuthenticated = True Then
-            Notifier1.shownotification("Alerts Started", "Now Listening", image, 10000)
-            Functions.GetAlerts()
-        Else
-            Configure.Show()
-        End If
+        Form_Configure.Show()
     End Sub
 End Class
