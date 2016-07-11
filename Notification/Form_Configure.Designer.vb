@@ -33,8 +33,10 @@ Partial Class Form_Configure
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.chkSound = New System.Windows.Forms.CheckBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.nmbDaysBeforeToAlert = New System.Windows.Forms.NumericUpDown()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cmbAlertColors = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.nmbDaysBeforeToAlert, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -136,6 +138,8 @@ Partial Class Form_Configure
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.cmbAlertColors)
         Me.GroupBox2.Controls.Add(Me.nmbDaysBeforeToAlert)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Location = New System.Drawing.Point(249, 12)
@@ -144,6 +148,15 @@ Partial Class Form_Configure
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Alert Configuration"
+        '
+        'nmbDaysBeforeToAlert
+        '
+        Me.nmbDaysBeforeToAlert.Location = New System.Drawing.Point(241, 21)
+        Me.nmbDaysBeforeToAlert.Maximum = New Decimal(New Integer() {365, 0, 0, 0})
+        Me.nmbDaysBeforeToAlert.Name = "nmbDaysBeforeToAlert"
+        Me.nmbDaysBeforeToAlert.Size = New System.Drawing.Size(69, 22)
+        Me.nmbDaysBeforeToAlert.TabIndex = 1
+        Me.nmbDaysBeforeToAlert.Value = New Decimal(New Integer() {20, 0, 0, 0})
         '
         'Label1
         '
@@ -154,15 +167,22 @@ Partial Class Form_Configure
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Days Before Current Date To Alert:"
         '
-        'nmbDaysBeforeToAlert
+        'cmbAlertColors
         '
-        Me.nmbDaysBeforeToAlert.Location = New System.Drawing.Point(241, 21)
-        Me.nmbDaysBeforeToAlert.Maximum = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.nmbDaysBeforeToAlert.Minimum = New Decimal(New Integer() {365, 0, 0, -2147483648})
-        Me.nmbDaysBeforeToAlert.Name = "nmbDaysBeforeToAlert"
-        Me.nmbDaysBeforeToAlert.Size = New System.Drawing.Size(69, 22)
-        Me.nmbDaysBeforeToAlert.TabIndex = 1
-        Me.nmbDaysBeforeToAlert.Value = New Decimal(New Integer() {20, 0, 0, -2147483648})
+        Me.cmbAlertColors.FormattingEnabled = True
+        Me.cmbAlertColors.Location = New System.Drawing.Point(114, 50)
+        Me.cmbAlertColors.Name = "cmbAlertColors"
+        Me.cmbAlertColors.Size = New System.Drawing.Size(196, 24)
+        Me.cmbAlertColors.TabIndex = 2
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 53)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(100, 17)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Color Scheme:"
         '
         'Form_Configure
         '
@@ -199,4 +219,6 @@ Partial Class Form_Configure
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents nmbDaysBeforeToAlert As NumericUpDown
     Friend WithEvents Label1 As Label
+    Friend WithEvents cmbAlertColors As ComboBox
+    Friend WithEvents Label2 As Label
 End Class

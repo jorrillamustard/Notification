@@ -1,4 +1,5 @@
-﻿Imports RestSharp
+﻿Imports ComponentFactory.Krypton.Toolkit
+Imports RestSharp
 Imports System.Net
 Imports System.Text
 Imports System.IO
@@ -50,6 +51,7 @@ Public Class Form_Configure
         My.Settings.Password = txtPassword.Text
         My.Settings.Sound = chkSound.Checked
         My.Settings.DaysBeforeToAlert = nmbDaysBeforeToAlert.Value
+        My.Settings.ColorScheme = cmbAlertColors.SelectedItem
         My.Settings.Save()
 
         test1()
@@ -61,7 +63,15 @@ Public Class Form_Configure
         txtUserName.Text = My.Settings.UserName
         txtPassword.Text = My.Settings.Password
         chkSound.Checked = My.Settings.Sound
+
         nmbDaysBeforeToAlert.Value = My.Settings.DaysBeforeToAlert
+
+        For Each x In [Enum].GetValues(GetType(PaletteModeManager))
+            cmbAlertColors.Items.Add(x.ToString)
+        Next
+        cmbAlertColors.SelectedIndex = 0
+        cmbAlertColors.SelectedItem = My.Settings.ColorScheme
+
 
     End Sub
 
