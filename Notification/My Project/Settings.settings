@@ -11,5 +11,11 @@
     <Setting Name="WebServer" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="Sound" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DaysBeforeToAlert" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">-20</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

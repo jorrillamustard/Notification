@@ -89,6 +89,30 @@ Namespace My
                 Me("WebServer") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property Sound() As Boolean
+            Get
+                Return CType(Me("Sound"),Boolean)
+            End Get
+            Set
+                Me("Sound") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("-20")>  _
+        Public Property DaysBeforeToAlert() As Integer
+            Get
+                Return CType(Me("DaysBeforeToAlert"),Integer)
+            End Get
+            Set
+                Me("DaysBeforeToAlert") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
