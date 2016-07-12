@@ -73,6 +73,7 @@ Partial Class Form_Alert
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form_Alert"
         Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Notification Title"
         Me.TopMost = True
         CType(Me.KryptonPanel, System.ComponentModel.ISupportInitialize).EndInit()
