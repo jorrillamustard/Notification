@@ -27,10 +27,18 @@ Public Class Form_Hide
 
 
         If TestConfiguration(1) = True Then
+
+
             Functions.NewAlert("Endpoint Alert Notifications", "Endpoint Alert Notifications Started", My.Resources.flogo3232, 10000)
             ' Start Timer/Function
+            If My.Settings.LastCheckTime < DateTime.Now.AddHours(-1) Then
+                My.Settings.LastCheckTime = DateTime.Now
+                My.Settings.Save()
+            End If
             AlertChecker.StartAlertChecker()
         Else
+            My.Settings.LastCheckTime = DateTime.Now
+            My.Settings.Save()
             Form_Configure.Show()
         End If
         Me.Hide()
