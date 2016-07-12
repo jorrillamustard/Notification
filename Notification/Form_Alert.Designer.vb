@@ -37,7 +37,7 @@ Partial Class Form_Alert
         Me.KryptonPanel.Location = New System.Drawing.Point(0, 0)
         Me.KryptonPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.KryptonPanel.Name = "KryptonPanel"
-        Me.KryptonPanel.Size = New System.Drawing.Size(604, 190)
+        Me.KryptonPanel.Size = New System.Drawing.Size(615, 56)
         Me.KryptonPanel.TabIndex = 0
         '
         'KryptonLabel1
@@ -73,7 +73,9 @@ Partial Class Form_Alert
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form_Alert"
         Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Notification Title"
+        Me.TopMost = True
         CType(Me.KryptonPanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonPanel.ResumeLayout(False)
         Me.KryptonPanel.PerformLayout()

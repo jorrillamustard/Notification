@@ -43,6 +43,7 @@ Module Functions
         End If
         Dim alertbox As New Form_Alert
         alertbox.shownotification(Message, Caption, Image, Math.Abs(Time) * 1000)
+
     End Sub
 
 

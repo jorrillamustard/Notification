@@ -14,9 +14,6 @@
     <Setting Name="Sound" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="DaysBeforeToAlert" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">-20</Value>
-    </Setting>
     <Setting Name="ColorScheme" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
@@ -28,6 +25,9 @@
     </Setting>
     <Setting Name="CheckInterval" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="LastCheckTime" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

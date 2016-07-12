@@ -104,18 +104,6 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("-20")>  _
-        Public Property DaysBeforeToAlert() As Integer
-            Get
-                Return CType(Me("DaysBeforeToAlert"),Integer)
-            End Get
-            Set
-                Me("DaysBeforeToAlert") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ColorScheme() As String
             Get
@@ -158,6 +146,17 @@ Namespace My
             End Get
             Set
                 Me("CheckInterval") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property LastCheckTime() As Date
+            Get
+                Return CType(Me("LastCheckTime"),Date)
+            End Get
+            Set
+                Me("LastCheckTime") = value
             End Set
         End Property
     End Class

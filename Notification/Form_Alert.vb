@@ -17,8 +17,11 @@ Public Class Form_Alert
     Sub shownotification(ByVal notificationtext As String, ByVal notificationtitle As String, ByVal icon As Image, ByVal lengthinmilliseconds As Integer)
         Dim intX As Integer = Screen.PrimaryScreen.Bounds.Width
         Dim intY As Integer = Screen.PrimaryScreen.Bounds.Height
-        Dim loc As New System.Drawing.Point(intX - 500, intY)
+        Dim loc As New System.Drawing.Point(intX - Me.Width, intY)
+
+
         Me.Show()
+
         Me.Text = notificationtitle
         KryptonLabel1.Text = notificationtext
         PictureBox1.Image = icon
@@ -45,7 +48,7 @@ Public Class Form_Alert
         Do Until i = 135
             Dim intX As Integer = Screen.PrimaryScreen.Bounds.Width
             Dim intY As Integer = Screen.PrimaryScreen.Bounds.Height
-            Dim loc As New System.Drawing.Point(intX - 500, intY - i)
+            Dim loc As New System.Drawing.Point(intX - Me.Width, intY - i)
             Me.Location = loc
             i = i + 1
         Loop

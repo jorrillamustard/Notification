@@ -1,4 +1,5 @@
-﻿Imports ComponentFactory.Krypton.Toolkit
+﻿Imports System.ComponentModel
+Imports ComponentFactory.Krypton.Toolkit
 
 Public Class Form_Configure
 
@@ -7,7 +8,7 @@ Public Class Form_Configure
         My.Settings.UserName = txtUserName.Text
         My.Settings.Password = txtPassword.Text
         My.Settings.Sound = chkSound.Checked
-        My.Settings.DaysBeforeToAlert = nmbDaysBeforeToAlert.Value
+
         My.Settings.ColorScheme = cmbAlertColors.SelectedItem
 
         My.Settings.DaysSinceAlert = Now
@@ -37,7 +38,7 @@ Public Class Form_Configure
         txtPassword.Text = My.Settings.Password
         chkSound.Checked = My.Settings.Sound
         nmbAlertTimeout.Value = My.Settings.AlertTimeout
-        nmbDaysBeforeToAlert.Value = My.Settings.DaysBeforeToAlert
+        lblLastAlertCheck.Text = "Last Alert Check: " & My.Settings.LastCheckTime
         nmbCheckInterval.Value = My.Settings.CheckInterval
 
         For Each x In [Enum].GetValues(GetType(PaletteModeManager))
@@ -50,13 +51,8 @@ Public Class Form_Configure
     End Sub
 
     Private Sub Configure_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        If Form_Hide.RestClient.IsAuthenticated = True Then
-            Me.Hide()
-            Functions.NewAlert("Endpoint Alert Notifications", "Endpoint Alert Notifications Started", My.Resources.flogo3232, 10000)
-            ' Start Timer/Function
-            Form_Hide.AlertChecker.StartAlertChecker()
-        Else
 
-        End If
     End Sub
+
+
 End Class
