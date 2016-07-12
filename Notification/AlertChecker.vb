@@ -8,17 +8,17 @@
         AlertCheckTimer.Enabled = False
     End Sub
     Private Sub CheckForAlerts()
+        Dim lastcheck As DateTime = My.Settings.LastCheckTime
+        My.Settings.LastCheckTime = DateTime.Now
+        My.Settings.Save()
         Dim newa = RestClnt.Functions.Alert.GetAlertsWithCounts
         If newa.Success = True Then
-
-
             For Each e In newa.Data.entities
-                If e.createDate > My.Settings.LastCheckTime Then
+                If e.createDate > lastcheck Then
                     Functions.NewAlert(e.artifactName, e.createDate, My.Resources.flogo3232, My.Settings.AlertTimeout)
                 End If
             Next
-            My.Settings.LastCheckTime = DateTime.Now
-            My.Settings.Save()
+
             Form_Configure.lblLastAlertCheck.Text = "Last Alert Check: " & My.Settings.LastCheckTime
         End If
     End Sub
