@@ -35,7 +35,7 @@ Partial Class Form_Alert
         Me.KryptonPanel.Controls.Add(Me.PictureBox1)
         Me.KryptonPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.KryptonPanel.Location = New System.Drawing.Point(0, 0)
-        Me.KryptonPanel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.KryptonPanel.Margin = New System.Windows.Forms.Padding(4)
         Me.KryptonPanel.Name = "KryptonPanel"
         Me.KryptonPanel.Size = New System.Drawing.Size(604, 190)
         Me.KryptonPanel.TabIndex = 0
@@ -43,7 +43,7 @@ Partial Class Form_Alert
         'KryptonLabel1
         '
         Me.KryptonLabel1.Location = New System.Drawing.Point(67, 15)
-        Me.KryptonLabel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.KryptonLabel1.Margin = New System.Windows.Forms.Padding(4)
         Me.KryptonLabel1.Name = "KryptonLabel1"
         Me.KryptonLabel1.Size = New System.Drawing.Size(124, 24)
         Me.KryptonLabel1.TabIndex = 1
@@ -53,7 +53,7 @@ Partial Class Form_Alert
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Location = New System.Drawing.Point(16, 15)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(43, 39)
         Me.PictureBox1.TabIndex = 0
@@ -63,15 +63,16 @@ Partial Class Form_Alert
         '
         Me.KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.SparklePurple
         '
-        'Notifier1
+        'Form_Alert
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(604, 190)
+        Me.ClientSize = New System.Drawing.Size(615, 56)
         Me.Controls.Add(Me.KryptonPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Name = "Notifier1"
+        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Name = "Form_Alert"
+        Me.ShowInTaskbar = False
         Me.Text = "Notification Title"
         CType(Me.KryptonPanel, System.ComponentModel.ISupportInitialize).EndInit()
         Me.KryptonPanel.ResumeLayout(False)

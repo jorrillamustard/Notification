@@ -1,3 +1,4 @@
+Imports ComponentFactory.Krypton.Toolkit
 Public Class Form_Alert
     Public timer As New Timer
     Public i As Integer = 0
@@ -5,6 +6,12 @@ Public Class Form_Alert
 
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'Load using the color scheme specified, otherwise default black
+        If Not My.Settings.ColorScheme = vbNullString Then
+            KryptonManager.GlobalPaletteMode = DirectCast([Enum].Parse(GetType(PaletteModeManager), My.Settings.ColorScheme), PaletteModeManager)
+        Else
+            KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black
+        End If
 
 
     End Sub
