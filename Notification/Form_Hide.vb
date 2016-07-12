@@ -1,6 +1,7 @@
 ﻿
 Public Class Form_Hide
 
+
     Public RestClient As New Global.FEPRestClient.Client
     Public image As System.Drawing.Image
     Public TrackTime As DateTime
@@ -12,6 +13,10 @@ Public Class Form_Hide
 
     End Sub
 
+
+
+    Public RestClient As New FEPRestClient.Client
+    Public AlertChecker As New AlertChecker(RestClient)
 
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click

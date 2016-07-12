@@ -32,20 +32,24 @@ Partial Class Form_Configure
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.chkSound = New System.Windows.Forms.CheckBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.nmbAlertTimeout = New System.Windows.Forms.NumericUpDown()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cmbAlertColors = New System.Windows.Forms.ComboBox()
         Me.nmbDaysBeforeToAlert = New System.Windows.Forms.NumericUpDown()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.txtStatusStrip = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.nmbAlertTimeout = New System.Windows.Forms.NumericUpDown()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.nmbCheckInterval = New System.Windows.Forms.NumericUpDown()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.nmbAlertTimeout, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nmbDaysBeforeToAlert, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
-        CType(Me.nmbAlertTimeout, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nmbCheckInterval, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtServer
@@ -135,6 +139,9 @@ Partial Class Form_Configure
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label6)
+        Me.GroupBox2.Controls.Add(Me.nmbCheckInterval)
+        Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.nmbAlertTimeout)
         Me.GroupBox2.Controls.Add(Me.Label3)
@@ -149,6 +156,33 @@ Partial Class Form_Configure
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Alert Configuration"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(241, 80)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(61, 17)
+        Me.Label4.TabIndex = 12
+        Me.Label4.Text = "seconds"
+        '
+        'nmbAlertTimeout
+        '
+        Me.nmbAlertTimeout.Location = New System.Drawing.Point(178, 78)
+        Me.nmbAlertTimeout.Minimum = New Decimal(New Integer() {2, 0, 0, 0})
+        Me.nmbAlertTimeout.Name = "nmbAlertTimeout"
+        Me.nmbAlertTimeout.Size = New System.Drawing.Size(57, 22)
+        Me.nmbAlertTimeout.TabIndex = 11
+        Me.nmbAlertTimeout.Value = New Decimal(New Integer() {2, 0, 0, 0})
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(6, 80)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(170, 17)
+        Me.Label3.TabIndex = 10
+        Me.Label3.Text = "Alert Notification Timeout:"
         '
         'Label2
         '
@@ -201,32 +235,33 @@ Partial Class Form_Configure
         Me.txtStatusStrip.Size = New System.Drawing.Size(49, 20)
         Me.txtStatusStrip.Text = "Status"
         '
-        'Label3
+        'Label5
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 80)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(170, 17)
-        Me.Label3.TabIndex = 10
-        Me.Label3.Text = "Alert Notification Timeout:"
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(6, 106)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(151, 17)
+        Me.Label5.TabIndex = 13
+        Me.Label5.Text = "Time Between Checks:"
         '
-        'nmbAlertTimeout
+        'Label6
         '
-        Me.nmbAlertTimeout.Location = New System.Drawing.Point(178, 78)
-        Me.nmbAlertTimeout.Minimum = New Decimal(New Integer() {2, 0, 0, 0})
-        Me.nmbAlertTimeout.Name = "nmbAlertTimeout"
-        Me.nmbAlertTimeout.Size = New System.Drawing.Size(57, 22)
-        Me.nmbAlertTimeout.TabIndex = 11
-        Me.nmbAlertTimeout.Value = New Decimal(New Integer() {2, 0, 0, 0})
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(219, 106)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(61, 17)
+        Me.Label6.TabIndex = 15
+        Me.Label6.Text = "seconds"
         '
-        'Label4
+        'nmbCheckInterval
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(241, 80)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(61, 17)
-        Me.Label4.TabIndex = 12
-        Me.Label4.Text = "seconds"
+        Me.nmbCheckInterval.Location = New System.Drawing.Point(156, 104)
+        Me.nmbCheckInterval.Maximum = New Decimal(New Integer() {360, 0, 0, 0})
+        Me.nmbCheckInterval.Minimum = New Decimal(New Integer() {2, 0, 0, 0})
+        Me.nmbCheckInterval.Name = "nmbCheckInterval"
+        Me.nmbCheckInterval.Size = New System.Drawing.Size(57, 22)
+        Me.nmbCheckInterval.TabIndex = 14
+        Me.nmbCheckInterval.Value = New Decimal(New Integer() {2, 0, 0, 0})
         '
         'Form_Configure
         '
@@ -247,10 +282,11 @@ Partial Class Form_Configure
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.nmbAlertTimeout, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nmbDaysBeforeToAlert, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
-        CType(Me.nmbAlertTimeout, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nmbCheckInterval, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -275,4 +311,7 @@ Partial Class Form_Configure
     Friend WithEvents Label4 As Label
     Friend WithEvents nmbAlertTimeout As NumericUpDown
     Friend WithEvents Label3 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents nmbCheckInterval As NumericUpDown
+    Friend WithEvents Label5 As Label
 End Class

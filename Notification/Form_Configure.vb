@@ -18,21 +18,19 @@ Public Class Form_Configure
 
         My.Settings.AlertTimeout = nmbAlertTimeout.Value
 
+        My.Settings.CheckInterval = nmbCheckInterval.Value
+
         My.Settings.Save()
 
         'Test Configuration
         If Functions.TestConfiguration(2) = True Then
             txtStatusStrip.Text = "Configuration Saved and Logged In"
-            Functions.NewAlert("Endpoint Alert Notifications", "Endpoint Alert Notifications Started", My.Resources.Capture, 10000)
-
-            'TODO: Start timer/functions
-            'Functions.GetAlerts(My.Settings.DaysBeforeToAlert)
-
+            Functions.NewAlert("Endpoint Alert Notifications", "Endpoint Alert Notifications Started", My.Resources.flogo3232, 10000)
+            ' Start timer/functions
+            Form_Hide.AlertChecker.StartAlertChecker()
         Else
             txtStatusStrip.Text = "Configuration Not Saved. Invalid Settings."
         End If
-
-        'TODO: Start timer/functions
 
 
     End Sub
@@ -44,6 +42,7 @@ Public Class Form_Configure
         chkSound.Checked = My.Settings.Sound
         nmbAlertTimeout.Value = My.Settings.AlertTimeout
         nmbDaysBeforeToAlert.Value = My.Settings.DaysBeforeToAlert
+        nmbCheckInterval.Value = My.Settings.CheckInterval
 
         For Each x In [Enum].GetValues(GetType(PaletteModeManager))
             cmbAlertColors.Items.Add(x.ToString)
@@ -57,9 +56,9 @@ Public Class Form_Configure
     Private Sub Configure_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         If Form_Hide.RestClient.IsAuthenticated = True Then
             Me.Hide()
-            Functions.NewAlert("Endpoint Alert Notifications", "Endpoint Alert Notifications Started", My.Resources.Capture, 10000)
-            'TODO: Start Timer/Function
-            'Functions.GetAlerts(My.Settings.DaysBeforeToAlert)
+            Functions.NewAlert("Endpoint Alert Notifications", "Endpoint Alert Notifications Started", My.Resources.flogo3232, 10000)
+            ' Start Timer/Function
+            Form_Hide.AlertChecker.StartAlertChecker()
         Else
 
         End If
