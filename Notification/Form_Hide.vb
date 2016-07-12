@@ -20,13 +20,20 @@ Public Class Form_Hide
         RestClient.IgnoreSSL = True
         RestClient.Authenticate()
 
-        TestConfiguration(1)
-
     End Sub
 
     Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+
+
+
+        If TestConfiguration(1) = True Then
+            Functions.NewAlert("Endpoint Alert Notifications", "Endpoint Alert Notifications Started", My.Resources.flogo3232, 10000)
+            ' Start Timer/Function
+            AlertChecker.StartAlertChecker()
+        Else
+            Form_Configure.Show()
+        End If
         Me.Hide()
-        Form_Configure.Show()
     End Sub
 
 End Class
