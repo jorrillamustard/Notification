@@ -17,13 +17,23 @@ Public Class Form_Alert
     Sub shownotification(ByVal notificationtext As String, ByVal notificationtitle As String, ByVal icon As Image, ByVal lengthinmilliseconds As Integer)
         Dim intX As Integer = Screen.PrimaryScreen.Bounds.Width
         Dim intY As Integer = Screen.PrimaryScreen.Bounds.Height
-        Dim loc As New System.Drawing.Point(intX - Me.Width, intY)
+
         Me.Opacity = 0
         Me.Show()
         Me.Location = New Point(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height)
         Me.Opacity = 100
         Me.Text = notificationtitle
         KryptonLabel1.Text = notificationtext
+        Dim strsize = MeasureString(notificationtext)
+
+        KryptonLabel1.Height = strsize.Height
+        KryptonLabel1.Width = strsize.Width
+        Dim loc As New System.Drawing.Point(intX - Me.Width, intY)
+        If strsize.Height > 58 Then
+            Me.Height = strsize.Height
+            Me.Refresh()
+        End If
+
         PictureBox1.Image = icon
         Me.Location = loc
         timer.Interval = 500
@@ -38,6 +48,12 @@ Public Class Form_Alert
 
 
     End Sub
+    Public Function MeasureString(ByVal Str As String) As SizeF
+        Dim font As New Font(FontFamily.GenericSansSerif, 20, FontStyle.Regular)
+
+        Dim g As Graphics = Me.CreateGraphics
+        Return g.MeasureString(Str, font)
+    End Function
     Sub endtimer_tick()
 
         Me.Close()
@@ -45,7 +61,7 @@ Public Class Form_Alert
         endtimer.Enabled = False
     End Sub
     Sub timer_tick()
-        Do Until i = 135
+        Do Until i = Me.Height + 40
             Dim intX As Integer = Screen.PrimaryScreen.Bounds.Width
             Dim intY As Integer = Screen.PrimaryScreen.Bounds.Height
             Dim loc As New System.Drawing.Point(intX - Me.Width, intY - i)

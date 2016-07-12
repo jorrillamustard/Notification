@@ -1,4 +1,6 @@
-﻿Public Class AlertChecker
+﻿Imports System.Text
+
+Public Class AlertChecker
     Private Property RestClnt As New FEPRestClient.Client
     Private Property AlertCheckTimer As Timer
     Public Sub New(ByVal RestClient As FEPRestClient.Client)
@@ -15,19 +17,28 @@
         If newa.Success = True Then
             For Each e In newa.Data.entities
                 If e.createDate > lastcheck Then
+                    Dim sevlogo As Image
                     Select Case e.severity
                         Case 1
-                            Functions.NewAlert(e.artifactName, e.createDate, My.Resources.FtransparentRed, My.Settings.AlertTimeout)
-
+                            sevlogo = My.Resources.FtransparentRed
                         Case 2
-                            Functions.NewAlert(e.artifactName, e.createDate, My.Resources.FtransparentRed, My.Settings.AlertTimeout)
-
+                            sevlogo = My.Resources.FtransparentRed
                         Case 3
-                            Functions.NewAlert(e.artifactName, e.createDate, My.Resources.FtransparentOrange_1, My.Settings.AlertTimeout)
-
+                            sevlogo = My.Resources.FtransparentOrange_1
                         Case Else
-                            Functions.NewAlert(e.artifactName, e.createDate, My.Resources.FtransparentYellow, My.Settings.AlertTimeout)
+                            sevlogo = My.Resources.FtransparentYellow
                     End Select
+                    Dim caption As String = "New Alert"
+                    Dim message As New StringBuilder
+                    message.AppendLine("Name: " & e.artifactName)
+                    message.AppendLine("Assessment: " & e.assessment)
+                    Dim sev As Functions.Sev = e.severity
+                    message.AppendLine("Severity: " & sev.ToString)
+                    message.AppendLine("Source: " & e.source)
+                    message.AppendLine("Target: " & e.target)
+
+                    Functions.NewAlert(caption, message.ToString, sevlogo, My.Settings.AlertTimeout)
+
                 End If
             Next
 
