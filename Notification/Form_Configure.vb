@@ -2,10 +2,6 @@
 
 Public Class Form_Configure
 
-    Dim PasswordText As String
-    Dim UsernameText As String
-    Dim ServerText As String
-
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         My.Settings.WebServer = txtServer.Text
         My.Settings.UserName = txtUserName.Text
