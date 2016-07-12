@@ -13,7 +13,6 @@ Public Class Form_Alert
             KryptonManager.GlobalPaletteMode = ComponentFactory.Krypton.Toolkit.PaletteModeManager.Office2010Black
         End If
 
-
     End Sub
     Sub shownotification(ByVal notificationtext As String, ByVal notificationtitle As String, ByVal icon As Image, ByVal lengthinmilliseconds As Integer)
         Dim intX As Integer = Screen.PrimaryScreen.Bounds.Width
