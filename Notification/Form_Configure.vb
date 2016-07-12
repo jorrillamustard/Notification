@@ -71,7 +71,7 @@ Public Class Form_Configure
         Next
         cmbAlertColors.SelectedIndex = 0
         cmbAlertColors.SelectedItem = My.Settings.ColorScheme
-
+        txtStatusStrip.Text = ""
 
     End Sub
 
