@@ -18,10 +18,10 @@ Public Class Form_Alert
         Dim intX As Integer = Screen.PrimaryScreen.Bounds.Width
         Dim intY As Integer = Screen.PrimaryScreen.Bounds.Height
         Dim loc As New System.Drawing.Point(intX - Me.Width, intY)
-
-
+        Me.Opacity = 0
         Me.Show()
-
+        Me.Location = New Point(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height)
+        Me.Opacity = 100
         Me.Text = notificationtitle
         KryptonLabel1.Text = notificationtext
         PictureBox1.Image = icon
