@@ -29,6 +29,7 @@ Partial Class Form_Hide
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfigureToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Timer_Alerts = New System.Windows.Forms.Timer(Me.components)
         Me.NotifyMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -64,13 +65,17 @@ Partial Class Form_Hide
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(143, 24)
         Me.HelpToolStripMenuItem.Text = "Help"
         '
-        'Form1
+        'Timer_Alerts
+        '
+        Me.Timer_Alerts.Interval = 60000
+        '
+        'Form_Hide
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(282, 255)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Name = "Form1"
+        Me.Name = "Form_Hide"
         Me.Opacity = 0R
         Me.ShowInTaskbar = False
         Me.Text = "Notify"
@@ -85,4 +90,5 @@ Partial Class Form_Hide
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ConfigureToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Timer_Alerts As Timer
 End Class

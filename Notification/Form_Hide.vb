@@ -16,6 +16,9 @@ Imports System.Collections.Specialized
 Public Class Form_Hide
     Public RestClient As New Global.FEPRestClient.Client
     Public image As System.Drawing.Image
+    Public TrackTime As DateTime
+
+
 
 
     Private Sub NotifyIcon1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles TrayIcon.MouseDoubleClick
@@ -40,11 +43,17 @@ Public Class Form_Hide
         RestClient.IgnoreSSL = True
         RestClient.Authenticate()
 
-
+        Timer_Alerts.Start()
 
     End Sub
 
     Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Form_Configure.Show()
+    End Sub
+
+    Private Sub Timer_Alerts_Tick(sender As Object, e As EventArgs) Handles Timer_Alerts.Tick
+        Functions.MonitorAlerts()
+        My.Settings.DaysSinceAlert = Now
+        My.Settings.Save()
     End Sub
 End Class

@@ -27,5 +27,16 @@ Module Functions
 
     End Sub
 
+    Public Sub MonitorAlerts()
+        Dim a = Form_Hide.RestClient.Functions.Alert.GetAlertsWithCounts()
+        If a.Success = True Then
+            For Each e In a.Data.entities
+                If e.createDate > My.Settings.DaysSinceAlert Then
+                    Dim alertnote As New Form_Alert
+                    alertnote.shownotification(e.createDate, e.artifactName, My.Resources.Capture, 5000)
+                End If
+            Next
+        End If
+    End Sub
 
 End Module

@@ -52,6 +52,7 @@ Public Class Form_Configure
         My.Settings.Sound = chkSound.Checked
         My.Settings.DaysBeforeToAlert = nmbDaysBeforeToAlert.Value
         My.Settings.ColorScheme = cmbAlertColors.SelectedItem
+        My.Settings.DaysSinceAlert = Now
         My.Settings.Save()
 
         test1()

@@ -125,6 +125,17 @@ Namespace My
                 Me("ColorScheme") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property DaysSinceAlert() As Date
+            Get
+                Return CType(Me("DaysSinceAlert"),Date)
+            End Get
+            Set
+                Me("DaysSinceAlert") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
