@@ -1,6 +1,7 @@
 ﻿
 Public Class Form_Hide
     Public RestClient As New FEPRestClient.Client
+    Public AlertChecker As New AlertChecker(RestClient)
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
         Me.Close()

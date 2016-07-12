@@ -137,6 +137,18 @@ Namespace My
                 Me("AlertTimeout") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+        Public Property CheckInterval() As Integer
+            Get
+                Return CType(Me("CheckInterval"),Integer)
+            End Get
+            Set
+                Me("CheckInterval") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
