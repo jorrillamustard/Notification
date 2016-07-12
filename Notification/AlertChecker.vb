@@ -15,7 +15,19 @@
         If newa.Success = True Then
             For Each e In newa.Data.entities
                 If e.createDate > lastcheck Then
-                    Functions.NewAlert(e.artifactName, e.createDate, My.Resources.flogo3232, My.Settings.AlertTimeout)
+                    Select Case e.severity
+                        Case 1
+                            Functions.NewAlert(e.artifactName, e.createDate, My.Resources.FtransparentRed, My.Settings.AlertTimeout)
+
+                        Case 2
+                            Functions.NewAlert(e.artifactName, e.createDate, My.Resources.FtransparentRed, My.Settings.AlertTimeout)
+
+                        Case 3
+                            Functions.NewAlert(e.artifactName, e.createDate, My.Resources.FtransparentOrange_1, My.Settings.AlertTimeout)
+
+                        Case Else
+                            Functions.NewAlert(e.artifactName, e.createDate, My.Resources.FtransparentYellow, My.Settings.AlertTimeout)
+                    End Select
                 End If
             Next
 
