@@ -1,16 +1,4 @@
-﻿Imports System.IO
-Imports System.Web
-Imports Newtonsoft
-Imports Newtonsoft.Json
-Imports FEPRestClient.Models.Response
-Imports FEPRestClient.Models.Job
-Imports FEPRestClient.Models.Report
-Imports FEPRestClient.Models.Enums
-Imports FEPRestClient.Models.Project
-Imports FEPRestClient.Models.Alert
-Imports System.Collections.ObjectModel
-Imports System.Configuration
-Imports System.Collections.Specialized
+﻿
 
 Module Functions
 
@@ -27,5 +15,35 @@ Module Functions
 
     End Sub
 
+    Public Function TestConfiguration(ByVal Src As Integer)
+
+        Form_Hide.RestClient.Username = My.Settings.UserName
+        Form_Hide.RestClient.Password = My.Settings.Password
+        Form_Hide.RestClient.Server = My.Settings.WebServer
+        Form_Hide.RestClient.IgnoreSSL = True
+        Dim auth = Form_Hide.RestClient.Authenticate()
+        If auth.Success = True Then
+            Return True
+        Else
+            If Src = 1 Then
+                MsgBox("This appears to be the first time you've run the alert application, please configure your settings on the next screen.", MsgBoxStyle.Information, "Configuration Required")
+            Else
+                MsgBox(auth.Error.Message, MsgBoxStyle.Exclamation, "Authentication Issue")
+            End If
+
+            Return False
+        End If
+
+
+    End Function
+
+    Public Sub NewAlert(ByVal Caption As String, ByVal Message As String, ByVal Image As Image, ByVal Optional Time As Integer = 2)
+        If My.Settings.AlertTimeout > 2 Then
+            Time = My.Settings.AlertTimeout
+        End If
+        Dim alertbox As New Form_Alert
+        alertbox.shownotification(Message, Caption, Image, Math.Abs(Time) * 1000)
+
+    End Sub
 
 End Module

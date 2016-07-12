@@ -1,20 +1,4 @@
 ﻿Imports ComponentFactory.Krypton.Toolkit
-Imports RestSharp
-Imports System.Net
-Imports System.Text
-Imports System.IO
-Imports System.Web
-Imports Newtonsoft
-Imports Newtonsoft.Json
-Imports FEPRestClient.Models.Response
-Imports FEPRestClient.Models.Job
-Imports FEPRestClient.Models.Report
-Imports FEPRestClient.Models.Enums
-Imports FEPRestClient.Models.Project
-Imports FEPRestClient.Models.Alert
-Imports System.Collections.ObjectModel
-Imports System.Configuration
-Imports System.Collections.Specialized
 
 Public Class Form_Configure
 
@@ -22,39 +6,30 @@ Public Class Form_Configure
     Dim UsernameText As String
     Dim ServerText As String
 
-
-    Public Function test1()
-
-        Form_Hide.RestClient.Username = My.Settings.UserName
-        Form_Hide.RestClient.Password = My.Settings.Password
-        Form_Hide.RestClient.Server = My.Settings.WebServer
-        Form_Hide.RestClient.IgnoreSSL = True
-        Form_Hide.RestClient.Authenticate()
-
-        If Form_Hide.RestClient.IsAuthenticated = True Then
-            txtStatusStrip.Text = "Saved and Logged in"
-            Form_Alert.shownotification("Alert Notifcations Started", "Now Listening for Alerts", Form_Hide.image, 10000)
-            Functions.GetAlerts(My.Settings.DaysBeforeToAlert)
-            Return True
-        Else
-            txtStatusStrip.Text = "Login Failed Information not saved"
-            Return False
-        End If
-
-    End Function
-
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-
-
         My.Settings.WebServer = txtServer.Text
         My.Settings.UserName = txtUserName.Text
         My.Settings.Password = txtPassword.Text
         My.Settings.Sound = chkSound.Checked
         My.Settings.DaysBeforeToAlert = nmbDaysBeforeToAlert.Value
         My.Settings.ColorScheme = cmbAlertColors.SelectedItem
+        My.Settings.AlertTimeout = nmbAlertTimeout.Value
         My.Settings.Save()
 
-        test1()
+        'Test Configuration
+        If Functions.TestConfiguration(2) = True Then
+            txtStatusStrip.Text = "Configuration Saved and Logged In"
+            Functions.NewAlert("Endpoint Alert Notifications", "Endpoint Alert Notifications Started", My.Resources.Capture, 10000)
+
+            'TODO: Start timer/functions
+            'Functions.GetAlerts(My.Settings.DaysBeforeToAlert)
+
+        Else
+            txtStatusStrip.Text = "Configuration Not Saved. Invalid Settings."
+        End If
+
+        'TODO: Start timer/functions
+
 
     End Sub
 
@@ -63,7 +38,7 @@ Public Class Form_Configure
         txtUserName.Text = My.Settings.UserName
         txtPassword.Text = My.Settings.Password
         chkSound.Checked = My.Settings.Sound
-
+        nmbAlertTimeout.Value = My.Settings.AlertTimeout
         nmbDaysBeforeToAlert.Value = My.Settings.DaysBeforeToAlert
 
         For Each x In [Enum].GetValues(GetType(PaletteModeManager))
@@ -77,9 +52,10 @@ Public Class Form_Configure
 
     Private Sub Configure_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         If Form_Hide.RestClient.IsAuthenticated = True Then
-            Form_Alert.shownotification("Alerts Started", "Now Listening", Form_Hide.image, 10000)
-            Functions.GetAlerts(My.Settings.DaysBeforeToAlert)
             Me.Hide()
+            Functions.NewAlert("Endpoint Alert Notifications", "Endpoint Alert Notifications Started", My.Resources.Capture, 10000)
+            'TODO: Start Timer/Function
+            'Functions.GetAlerts(My.Settings.DaysBeforeToAlert)
         Else
 
         End If
