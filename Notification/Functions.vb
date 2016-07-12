@@ -30,6 +30,14 @@ Module Functions
 
     End Function
 
+    Public Enum Sev
+        Critical = 1
+        High = 2
+        Medium = 3
+        Low = 4
+        Warning = 5
+    End Enum
+
     ''' <summary>
     ''' Show new alert message
     ''' </summary>
