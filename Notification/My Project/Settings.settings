@@ -20,13 +20,11 @@
     <Setting Name="ColorScheme" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-<<<<<<< HEAD
     <Setting Name="DaysSinceAlert" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)" />
-=======
+    </Setting>
     <Setting Name="AlertTimeout" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">2</Value>
->>>>>>> origin/master
     </Setting>
   </Settings>
 </SettingsFile>

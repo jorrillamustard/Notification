@@ -13,11 +13,11 @@ Public Class Form_Configure
         My.Settings.Sound = chkSound.Checked
         My.Settings.DaysBeforeToAlert = nmbDaysBeforeToAlert.Value
         My.Settings.ColorScheme = cmbAlertColors.SelectedItem
-<<<<<<< HEAD
+
         My.Settings.DaysSinceAlert = Now
-=======
+
         My.Settings.AlertTimeout = nmbAlertTimeout.Value
->>>>>>> origin/master
+
         My.Settings.Save()
 
         'Test Configuration

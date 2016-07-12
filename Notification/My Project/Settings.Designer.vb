@@ -127,7 +127,6 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-<<<<<<< HEAD
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property DaysSinceAlert() As Date
             Get
@@ -135,7 +134,10 @@ Namespace My
             End Get
             Set
                 Me("DaysSinceAlert") = value
-=======
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
         Public Property AlertTimeout() As Integer
@@ -144,7 +146,6 @@ Namespace My
             End Get
             Set
                 Me("AlertTimeout") = value
->>>>>>> origin/master
             End Set
         End Property
     End Class

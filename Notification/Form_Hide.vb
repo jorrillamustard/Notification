@@ -1,6 +1,6 @@
 ﻿
 Public Class Form_Hide
-<<<<<<< HEAD
+
     Public RestClient As New Global.FEPRestClient.Client
     Public image As System.Drawing.Image
     Public TrackTime As DateTime
@@ -11,9 +11,8 @@ Public Class Form_Hide
     Private Sub NotifyIcon1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles TrayIcon.MouseDoubleClick
 
     End Sub
-=======
-    Public RestClient As New FEPRestClient.Client
->>>>>>> origin/master
+
+
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
         Me.Close()
@@ -24,7 +23,7 @@ Public Class Form_Hide
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-<<<<<<< HEAD
+
         image = My.Resources.ResourceManager.GetObject("Capture.PNG")
 
         RestClient.Username = My.Settings.UserName
@@ -35,9 +34,8 @@ Public Class Form_Hide
 
         Timer_Alerts.Start()
 
-=======
         TestConfiguration(1)
->>>>>>> origin/master
+
     End Sub
 
     Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles Me.Shown

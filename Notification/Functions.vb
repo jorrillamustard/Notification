@@ -15,7 +15,7 @@ Module Functions
 
     End Sub
 
-<<<<<<< HEAD
+
     Public Sub MonitorAlerts()
         Dim a = Form_Hide.RestClient.Functions.Alert.GetAlertsWithCounts()
         If a.Success = True Then
@@ -26,7 +26,7 @@ Module Functions
                 End If
             Next
         End If
-=======
+    End Sub
     Public Function TestConfiguration(ByVal Src As Integer)
 
         Form_Hide.RestClient.Username = My.Settings.UserName
@@ -56,7 +56,6 @@ Module Functions
         Dim alertbox As New Form_Alert
         alertbox.shownotification(Message, Caption, Image, Math.Abs(Time) * 1000)
 
->>>>>>> origin/master
     End Sub
 
 End Module
