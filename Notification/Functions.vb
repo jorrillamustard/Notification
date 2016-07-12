@@ -27,5 +27,30 @@ Module Functions
 
     End Sub
 
+    Public Function TestConfiguration()
+
+        Form_Hide.RestClient.Username = My.Settings.UserName
+        Form_Hide.RestClient.Password = My.Settings.Password
+        Form_Hide.RestClient.Server = My.Settings.WebServer
+        Form_Hide.RestClient.IgnoreSSL = True
+        Dim auth = Form_Hide.RestClient.Authenticate()
+        If auth.Success = True Then
+            Return True
+        Else
+            MsgBox(auth.Error.Message,, "Authentication Issue")
+            Return False
+        End If
+
+
+    End Function
+
+    Public Sub NewAlert(ByVal Caption As String, ByVal Message As String, ByVal Image As Image, ByVal Optional Time As Integer = 2)
+        If My.Settings.AlertTimeout > 2 Then
+            Time = My.Settings.AlertTimeout
+        End If
+        Dim alertbox As New Form_Alert
+        alertbox.shownotification(Message, Caption, Image, Math.Abs(Time) * 1000)
+
+    End Sub
 
 End Module
