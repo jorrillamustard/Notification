@@ -15,7 +15,7 @@ Module Functions
 
     End Sub
 
-    Public Function TestConfiguration()
+    Public Function TestConfiguration(ByVal Src As Integer)
 
         Form_Hide.RestClient.Username = My.Settings.UserName
         Form_Hide.RestClient.Password = My.Settings.Password
@@ -25,7 +25,12 @@ Module Functions
         If auth.Success = True Then
             Return True
         Else
-            MsgBox(auth.Error.Message,, "Authentication Issue")
+            If Src = 1 Then
+                MsgBox("This appears to be the first time you've run the alert application, please configure your settings on the next screen.", MsgBoxStyle.Information, "Configuration Required")
+            Else
+                MsgBox(auth.Error.Message, MsgBoxStyle.Exclamation, "Authentication Issue")
+            End If
+
             Return False
         End If
 

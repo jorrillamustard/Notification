@@ -17,7 +17,7 @@ Public Class Form_Configure
         My.Settings.Save()
 
         'Test Configuration
-        If Functions.TestConfiguration = True Then
+        If Functions.TestConfiguration(2) = True Then
             txtStatusStrip.Text = "Configuration Saved and Logged In"
             Functions.NewAlert("Endpoint Alert Notifications", "Endpoint Alert Notifications Started", My.Resources.Capture, 10000)
 
