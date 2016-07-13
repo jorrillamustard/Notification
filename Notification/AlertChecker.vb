@@ -13,11 +13,16 @@ Public Class AlertChecker
         Dim lastcheck As DateTime = My.Settings.LastCheckTime
         My.Settings.LastCheckTime = DateTime.Now
         My.Settings.Save()
-        Dim newa = RestClnt.Functions.Alert.GetAlertsWithCounts
+        Dim query As New StringBuilder
+        query.Append("(createDate >= DateTime.Parse(""")
+        query.Append(My.Settings.LastCheckTime.ToString("MM/dd/yyyy HH:mm"))
+        query.Append("""))")
+        Dim newa = RestClnt.Functions.Alert.GetAlertsWithCounts(,,,, query.ToString)
         If newa.Success = True Then
+
             For Each e In newa.Data.entities
-                If e.createDate > lastcheck Then
-                    Dim sevlogo As Image
+
+                Dim sevlogo As Image
                     Select Case e.severity
                         Case 1
                             sevlogo = My.Resources.FtransparentRed
@@ -39,7 +44,7 @@ Public Class AlertChecker
 
                     Functions.NewAlert(caption, message.ToString, sevlogo, My.Settings.AlertTimeout)
 
-                End If
+
             Next
 
             Form_Configure.lblLastAlertCheck.Text = "Last Alert Check: " & My.Settings.LastCheckTime
