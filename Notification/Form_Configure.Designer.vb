@@ -32,19 +32,17 @@ Partial Class Form_Configure
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.chkSound = New System.Windows.Forms.CheckBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.nmbCheckInterval = New System.Windows.Forms.NumericUpDown()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.nmbAlertTimeout = New System.Windows.Forms.NumericUpDown()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cmbAlertColors = New System.Windows.Forms.ComboBox()
-        Me.lblLastAlertCheck = New System.Windows.Forms.Label()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.txtStatusStrip = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.lblLastAlertCheck = New System.Windows.Forms.ToolStripStatusLabel()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.nmbCheckInterval, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -76,7 +74,7 @@ Partial Class Form_Configure
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(258, 238)
+        Me.btnSave.Location = New System.Drawing.Point(484, 177)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 30)
         Me.btnSave.TabIndex = 3
@@ -130,7 +128,7 @@ Partial Class Form_Configure
         Me.chkSound.AutoSize = True
         Me.chkSound.Checked = True
         Me.chkSound.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chkSound.Location = New System.Drawing.Point(9, 156)
+        Me.chkSound.Location = New System.Drawing.Point(10, 103)
         Me.chkSound.Name = "chkSound"
         Me.chkSound.Size = New System.Drawing.Size(132, 21)
         Me.chkSound.TabIndex = 9
@@ -140,36 +138,42 @@ Partial Class Form_Configure
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.nmbCheckInterval)
-        Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.nmbAlertTimeout)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.chkSound)
         Me.GroupBox2.Controls.Add(Me.cmbAlertColors)
-        Me.GroupBox2.Controls.Add(Me.lblLastAlertCheck)
         Me.GroupBox2.Location = New System.Drawing.Point(249, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(316, 186)
+        Me.GroupBox2.Size = New System.Drawing.Size(316, 142)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Alert Configuration"
         '
-        'Label6
+        'Label7
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(219, 119)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(61, 17)
-        Me.Label6.TabIndex = 15
-        Me.Label6.Text = "seconds"
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(219, 76)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(61, 17)
+        Me.Label7.TabIndex = 15
+        Me.Label7.Text = "seconds"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 76)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(151, 17)
+        Me.Label1.TabIndex = 13
+        Me.Label1.Text = "Time Between Checks:"
         '
         'nmbCheckInterval
         '
-        Me.nmbCheckInterval.Location = New System.Drawing.Point(163, 120)
+        Me.nmbCheckInterval.Location = New System.Drawing.Point(163, 74)
         Me.nmbCheckInterval.Maximum = New Decimal(New Integer() {360, 0, 0, 0})
         Me.nmbCheckInterval.Minimum = New Decimal(New Integer() {2, 0, 0, 0})
         Me.nmbCheckInterval.Name = "nmbCheckInterval"
@@ -177,19 +181,10 @@ Partial Class Form_Configure
         Me.nmbCheckInterval.TabIndex = 14
         Me.nmbCheckInterval.Value = New Decimal(New Integer() {2, 0, 0, 0})
         '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 119)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(151, 17)
-        Me.Label5.TabIndex = 13
-        Me.Label5.Text = "Time Between Checks:"
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(241, 87)
+        Me.Label4.Location = New System.Drawing.Point(199, 48)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(61, 17)
         Me.Label4.TabIndex = 12
@@ -197,7 +192,7 @@ Partial Class Form_Configure
         '
         'nmbAlertTimeout
         '
-        Me.nmbAlertTimeout.Location = New System.Drawing.Point(178, 86)
+        Me.nmbAlertTimeout.Location = New System.Drawing.Point(136, 47)
         Me.nmbAlertTimeout.Minimum = New Decimal(New Integer() {2, 0, 0, 0})
         Me.nmbAlertTimeout.Name = "nmbAlertTimeout"
         Me.nmbAlertTimeout.Size = New System.Drawing.Size(57, 22)
@@ -207,16 +202,16 @@ Partial Class Form_Configure
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 87)
+        Me.Label3.Location = New System.Drawing.Point(6, 48)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(170, 17)
+        Me.Label3.Size = New System.Drawing.Size(126, 17)
         Me.Label3.TabIndex = 10
-        Me.Label3.Text = "Alert Notification Timeout:"
+        Me.Label3.Text = "Alert Display Time:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 53)
+        Me.Label2.Location = New System.Drawing.Point(6, 22)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 17)
         Me.Label2.TabIndex = 3
@@ -225,27 +220,18 @@ Partial Class Form_Configure
         'cmbAlertColors
         '
         Me.cmbAlertColors.FormattingEnabled = True
-        Me.cmbAlertColors.Location = New System.Drawing.Point(114, 50)
+        Me.cmbAlertColors.Location = New System.Drawing.Point(114, 19)
         Me.cmbAlertColors.Name = "cmbAlertColors"
         Me.cmbAlertColors.Size = New System.Drawing.Size(196, 24)
         Me.cmbAlertColors.TabIndex = 2
         '
-        'lblLastAlertCheck
-        '
-        Me.lblLastAlertCheck.AutoSize = True
-        Me.lblLastAlertCheck.Location = New System.Drawing.Point(6, 23)
-        Me.lblLastAlertCheck.Name = "lblLastAlertCheck"
-        Me.lblLastAlertCheck.Size = New System.Drawing.Size(115, 17)
-        Me.lblLastAlertCheck.TabIndex = 0
-        Me.lblLastAlertCheck.Text = "Last Alert Check:"
-        '
         'StatusStrip1
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.txtStatusStrip})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 291)
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.txtStatusStrip, Me.lblLastAlertCheck})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 220)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(579, 25)
+        Me.StatusStrip1.Size = New System.Drawing.Size(581, 25)
         Me.StatusStrip1.TabIndex = 11
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -255,29 +241,17 @@ Partial Class Form_Configure
         Me.txtStatusStrip.Size = New System.Drawing.Size(49, 20)
         Me.txtStatusStrip.Text = "Status"
         '
-        'Label1
+        'lblLastAlertCheck
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 122)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(151, 17)
-        Me.Label1.TabIndex = 13
-        Me.Label1.Text = "Time Between Checks:"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(219, 122)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(61, 17)
-        Me.Label7.TabIndex = 15
-        Me.Label7.Text = "seconds"
+        Me.lblLastAlertCheck.Name = "lblLastAlertCheck"
+        Me.lblLastAlertCheck.Size = New System.Drawing.Size(117, 20)
+        Me.lblLastAlertCheck.Text = "Last Alert Check:"
         '
         'Form_Configure
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(579, 316)
+        Me.ClientSize = New System.Drawing.Size(581, 245)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -311,7 +285,6 @@ Partial Class Form_Configure
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents chkSound As CheckBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents lblLastAlertCheck As Label
     Friend WithEvents cmbAlertColors As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents StatusStrip1 As StatusStrip
@@ -319,9 +292,8 @@ Partial Class Form_Configure
     Friend WithEvents Label4 As Label
     Friend WithEvents nmbAlertTimeout As NumericUpDown
     Friend WithEvents Label3 As Label
-    Friend WithEvents Label6 As Label
     Friend WithEvents nmbCheckInterval As NumericUpDown
-    Friend WithEvents Label5 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents lblLastAlertCheck As ToolStripStatusLabel
 End Class
