@@ -19,8 +19,9 @@ Public Class AlertChecker
         My.Settings.Save()
         Dim query As New StringBuilder
         query.Append("(createDate >= DateTime.Parse(""")
-        query.Append(My.Settings.LastCheckTime.ToString("MM/dd/yyyy HH:mm")) 'Check based on minute due to slowness in some alert generations
+        query.Append(My.Settings.LastCheckTime.AddMinutes(Math.Abs(My.Settings.MinuteWindow) * -1).ToString("MM/dd/yyyy HH:mm")) 'Check based on minute due to slowness in some alert generations
         query.Append("""))")
+        Debug.WriteLine("Query Used: " & query.ToString)
         Dim newa = RestClnt.Functions.Alert.GetAlertsWithCounts(,,,, query.ToString)
         If newa.Success = True Then
             Debug.WriteLine("Query Success... Result Count: " & newa.Data.totalCount)
@@ -45,6 +46,8 @@ Public Class AlertChecker
             Next
             Debug.WriteLine("Alert Check Done...")
             Form_Configure.lblLastAlertCheck.Text = "Last Alert Check: " & My.Settings.LastCheckTime
+        Else
+            Debug.WriteLine("API Error: " & newa.Error.Message)
         End If
     End Sub
 

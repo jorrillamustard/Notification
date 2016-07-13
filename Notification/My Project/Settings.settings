@@ -21,13 +21,16 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="AlertTimeout" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">2</Value>
+      <Value Profile="(Default)">10</Value>
     </Setting>
     <Setting Name="CheckInterval" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">2</Value>
+      <Value Profile="(Default)">30</Value>
     </Setting>
     <Setting Name="LastCheckTime" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MinuteWindow" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
     </Setting>
   </Settings>
 </SettingsFile>

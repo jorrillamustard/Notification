@@ -43,11 +43,15 @@ Partial Class Form_Configure
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.txtStatusStrip = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lblLastAlertCheck = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.nmbMinuteWindow = New System.Windows.Forms.NumericUpDown()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.nmbCheckInterval, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nmbAlertTimeout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
+        CType(Me.nmbMinuteWindow, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtServer
@@ -128,7 +132,7 @@ Partial Class Form_Configure
         Me.chkSound.AutoSize = True
         Me.chkSound.Checked = True
         Me.chkSound.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chkSound.Location = New System.Drawing.Point(10, 103)
+        Me.chkSound.Location = New System.Drawing.Point(9, 132)
         Me.chkSound.Name = "chkSound"
         Me.chkSound.Size = New System.Drawing.Size(132, 21)
         Me.chkSound.TabIndex = 9
@@ -137,6 +141,9 @@ Partial Class Form_Configure
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label6)
+        Me.GroupBox2.Controls.Add(Me.nmbMinuteWindow)
+        Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.nmbCheckInterval)
@@ -148,7 +155,7 @@ Partial Class Form_Configure
         Me.GroupBox2.Controls.Add(Me.cmbAlertColors)
         Me.GroupBox2.Location = New System.Drawing.Point(249, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(316, 142)
+        Me.GroupBox2.Size = New System.Drawing.Size(316, 159)
         Me.GroupBox2.TabIndex = 10
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Alert Configuration"
@@ -179,7 +186,7 @@ Partial Class Form_Configure
         Me.nmbCheckInterval.Name = "nmbCheckInterval"
         Me.nmbCheckInterval.Size = New System.Drawing.Size(52, 22)
         Me.nmbCheckInterval.TabIndex = 14
-        Me.nmbCheckInterval.Value = New Decimal(New Integer() {2, 0, 0, 0})
+        Me.nmbCheckInterval.Value = New Decimal(New Integer() {30, 0, 0, 0})
         '
         'Label4
         '
@@ -197,7 +204,7 @@ Partial Class Form_Configure
         Me.nmbAlertTimeout.Name = "nmbAlertTimeout"
         Me.nmbAlertTimeout.Size = New System.Drawing.Size(57, 22)
         Me.nmbAlertTimeout.TabIndex = 11
-        Me.nmbAlertTimeout.Value = New Decimal(New Integer() {2, 0, 0, 0})
+        Me.nmbAlertTimeout.Value = New Decimal(New Integer() {10, 0, 0, 0})
         '
         'Label3
         '
@@ -247,6 +254,34 @@ Partial Class Form_Configure
         Me.lblLastAlertCheck.Size = New System.Drawing.Size(117, 20)
         Me.lblLastAlertCheck.Text = "Last Alert Check:"
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(8, 103)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(179, 17)
+        Me.Label5.TabIndex = 16
+        Me.Label5.Text = "Minute Window For Query: "
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(239, 104)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(57, 17)
+        Me.Label6.TabIndex = 18
+        Me.Label6.Text = "minutes"
+        '
+        'nmbMinuteWindow
+        '
+        Me.nmbMinuteWindow.Location = New System.Drawing.Point(183, 102)
+        Me.nmbMinuteWindow.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
+        Me.nmbMinuteWindow.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.nmbMinuteWindow.Name = "nmbMinuteWindow"
+        Me.nmbMinuteWindow.Size = New System.Drawing.Size(52, 22)
+        Me.nmbMinuteWindow.TabIndex = 17
+        Me.nmbMinuteWindow.Value = New Decimal(New Integer() {5, 0, 0, 0})
+        '
         'Form_Configure
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -270,6 +305,7 @@ Partial Class Form_Configure
         CType(Me.nmbAlertTimeout, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
+        CType(Me.nmbMinuteWindow, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -296,4 +332,7 @@ Partial Class Form_Configure
     Friend WithEvents Label7 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents lblLastAlertCheck As ToolStripStatusLabel
+    Friend WithEvents Label6 As Label
+    Friend WithEvents nmbMinuteWindow As NumericUpDown
+    Friend WithEvents Label5 As Label
 End Class
