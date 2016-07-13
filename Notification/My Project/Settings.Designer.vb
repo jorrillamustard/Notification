@@ -127,7 +127,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("10")>  _
         Public Property AlertTimeout() As Integer
             Get
                 Return CType(Me("AlertTimeout"),Integer)
@@ -139,7 +139,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("30")>  _
         Public Property CheckInterval() As Integer
             Get
                 Return CType(Me("CheckInterval"),Integer)
@@ -157,6 +157,18 @@ Namespace My
             End Get
             Set
                 Me("LastCheckTime") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+        Public Property MinuteWindow() As Integer
+            Get
+                Return CType(Me("MinuteWindow"),Integer)
+            End Get
+            Set
+                Me("MinuteWindow") = value
             End Set
         End Property
     End Class

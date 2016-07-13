@@ -8,15 +8,11 @@ Public Class Form_Configure
         My.Settings.UserName = txtUserName.Text
         My.Settings.Password = txtPassword.Text
         My.Settings.Sound = chkSound.Checked
-
+        My.Settings.MinuteWindow = nmbMinuteWindow.Value
         My.Settings.ColorScheme = cmbAlertColors.SelectedItem
-
         My.Settings.DaysSinceAlert = Now
-
         My.Settings.AlertTimeout = nmbAlertTimeout.Value
-
         My.Settings.CheckInterval = nmbCheckInterval.Value
-
         My.Settings.Save()
 
         'Test Configuration
@@ -37,10 +33,10 @@ Public Class Form_Configure
         txtUserName.Text = My.Settings.UserName
         txtPassword.Text = My.Settings.Password
         chkSound.Checked = My.Settings.Sound
+        nmbMinuteWindow.Value = My.Settings.MinuteWindow
         nmbAlertTimeout.Value = My.Settings.AlertTimeout
         lblLastAlertCheck.Text = "Last Alert Check: " & My.Settings.LastCheckTime
         nmbCheckInterval.Value = My.Settings.CheckInterval
-
         For Each x In [Enum].GetValues(GetType(PaletteModeManager))
             cmbAlertColors.Items.Add(x.ToString)
         Next
@@ -49,10 +45,5 @@ Public Class Form_Configure
         txtStatusStrip.Text = ""
 
     End Sub
-
-    Private Sub Configure_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-
-    End Sub
-
 
 End Class
