@@ -5,7 +5,7 @@ Public Class Form_Hide
     Public AlertChecker As New AlertChecker(RestClient)
 
 
-    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ExitProgram.Click
         Me.Close()
     End Sub
 

@@ -26,7 +26,7 @@ Partial Class Form_Hide
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Hide))
         Me.TrayIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.NotifyMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitProgram = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfigureToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer_Alerts = New System.Windows.Forms.Timer(Me.components)
@@ -43,26 +43,26 @@ Partial Class Form_Hide
         'NotifyMenuStrip1
         '
         Me.NotifyMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.NotifyMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.ConfigureToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.NotifyMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfigureToolStripMenuItem, Me.HelpToolStripMenuItem, Me.ExitProgram})
         Me.NotifyMenuStrip1.Name = "NotifyMenuStrip1"
-        Me.NotifyMenuStrip1.Size = New System.Drawing.Size(144, 76)
+        Me.NotifyMenuStrip1.Size = New System.Drawing.Size(182, 110)
         '
-        'ToolStripMenuItem1
+        'ExitProgram
         '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(143, 24)
-        Me.ToolStripMenuItem1.Text = "Exit"
+        Me.ExitProgram.Name = "ExitProgram"
+        Me.ExitProgram.Size = New System.Drawing.Size(181, 26)
+        Me.ExitProgram.Text = "Exit"
         '
         'ConfigureToolStripMenuItem
         '
         Me.ConfigureToolStripMenuItem.Name = "ConfigureToolStripMenuItem"
-        Me.ConfigureToolStripMenuItem.Size = New System.Drawing.Size(143, 24)
+        Me.ConfigureToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
         Me.ConfigureToolStripMenuItem.Text = "Configure"
         '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(143, 24)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
         Me.HelpToolStripMenuItem.Text = "Help"
         '
         'Timer_Alerts
@@ -87,7 +87,7 @@ Partial Class Form_Hide
 
     Friend WithEvents TrayIcon As NotifyIcon
     Friend WithEvents NotifyMenuStrip1 As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ExitProgram As ToolStripMenuItem
     Friend WithEvents ConfigureToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Timer_Alerts As Timer
