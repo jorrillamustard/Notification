@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form_Hide
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form_Hide
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Hide))
@@ -29,7 +29,6 @@ Partial Class Form_Hide
         Me.ExitProgram = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfigureToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Timer_Alerts = New System.Windows.Forms.Timer(Me.components)
         Me.NotifyMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -45,7 +44,7 @@ Partial Class Form_Hide
         Me.NotifyMenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.NotifyMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfigureToolStripMenuItem, Me.HelpToolStripMenuItem, Me.ExitProgram})
         Me.NotifyMenuStrip1.Name = "NotifyMenuStrip1"
-        Me.NotifyMenuStrip1.Size = New System.Drawing.Size(182, 110)
+        Me.NotifyMenuStrip1.Size = New System.Drawing.Size(150, 82)
         '
         'ExitProgram
         '
@@ -64,10 +63,6 @@ Partial Class Form_Hide
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
         Me.HelpToolStripMenuItem.Text = "Help"
-        '
-        'Timer_Alerts
-        '
-        Me.Timer_Alerts.Interval = 60000
         '
         'Form_Hide
         '
@@ -90,5 +85,4 @@ Partial Class Form_Hide
     Friend WithEvents ExitProgram As ToolStripMenuItem
     Friend WithEvents ConfigureToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents Timer_Alerts As Timer
 End Class
