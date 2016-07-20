@@ -13,6 +13,10 @@ Public Class Form_Hide
         Form_Configure.Show()
     End Sub
 
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+        Process.Start(".\Resources\NotificationHelp.htm")
+    End Sub
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         RestClient.Username = My.Settings.UserName
         RestClient.Password = My.Settings.Password
@@ -48,5 +52,6 @@ Public Class Form_Hide
         End If
 
     End Sub
+
 
 End Class
