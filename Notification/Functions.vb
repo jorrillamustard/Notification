@@ -54,7 +54,57 @@ Module Functions
 
     End Sub
 
+    Public Sub CreateNotificationDB()
+        Debug.WriteLine("Creating Database...NotificationDB.db3")
+        SQLite.SQLiteConnection.CreateFile("NotificationDB.db3")
+        Dim conn As String = "Data Source=NotificationDB.db3;Version=3"
+        Dim sqlconn As New SQLite.SQLiteConnection
+        Dim sqlcmd As New SQLite.SQLiteCommand
 
+        sqlconn.ConnectionString = conn
+        sqlconn.Open()
+        sqlcmd.Connection = sqlconn
+        sqlcmd.CommandText = "CREATE TABLE PreviousAlerts(AlertID INTEGER PRIMARY KEY ASC);"
+        Debug.WriteLine("SQLDB Creating Table PreviousAlerts...")
+        sqlcmd.ExecuteNonQuery()
+        sqlcmd.Dispose()
+        sqlconn.Close()
+        sqlconn.Dispose()
+    End Sub
+
+    Public Sub ValidateNotificationDB()
+        Debug.WriteLine("Validating Tables in NotificationDB")
+        Dim conn As String = "Data Source=NotificationDB.db3;Version=3"
+        Dim sqlconn As New SQLite.SQLiteConnection
+        Dim sqlcmd As New SQLite.SQLiteCommand
+        Dim sqldr As SQLite.SQLiteDataReader
+        sqlconn.ConnectionString = conn
+        sqlconn.Open()
+        sqlcmd.Connection = sqlconn
+        sqlcmd.CommandText = "SELECT name FROM sqlite_master WHERE type='table' AND name='PreviousAlerts';"
+        sqldr = sqlcmd.ExecuteReader
+        While sqldr.Read
+            Debug.WriteLine("SQDB Query Result: " & sqldr("name"))
+            If sqldr("name") = "PreviousAlerts" Then
+                Debug.WriteLine("PreviousAlerts table found...")
+            Else
+                Debug.WriteLine("PreviousAlerts not found..Creating missing table PreviousAlerts..")
+                sqlcmd.CommandText = "CREATE TABLE PreviousAlerts(AlertID INTEGER PRIMARY KEY ASC);"
+                sqlcmd.ExecuteNonQuery()
+            End If
+
+        End While
+
+        sqldr.Close()
+        sqlcmd.Dispose()
+        sqlconn.Close()
+        sqlconn.Dispose()
+    End Sub
+
+    Public Sub RecreateNotificationDB()
+        IO.File.Delete("NotificationDB.db3")
+        CreateNotificationDB()
+    End Sub
 
 
 End Module

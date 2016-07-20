@@ -26,9 +26,9 @@ Partial Class Form_Hide
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_Hide))
         Me.TrayIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.NotifyMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ExitProgram = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfigureToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitProgram = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifyMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -46,29 +46,29 @@ Partial Class Form_Hide
         Me.NotifyMenuStrip1.Name = "NotifyMenuStrip1"
         Me.NotifyMenuStrip1.Size = New System.Drawing.Size(150, 82)
         '
-        'ExitProgram
-        '
-        Me.ExitProgram.Name = "ExitProgram"
-        Me.ExitProgram.Size = New System.Drawing.Size(181, 26)
-        Me.ExitProgram.Text = "Exit"
-        '
         'ConfigureToolStripMenuItem
         '
         Me.ConfigureToolStripMenuItem.Name = "ConfigureToolStripMenuItem"
-        Me.ConfigureToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.ConfigureToolStripMenuItem.Size = New System.Drawing.Size(149, 26)
         Me.ConfigureToolStripMenuItem.Text = "Configure"
         '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(181, 26)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(149, 26)
         Me.HelpToolStripMenuItem.Text = "Help"
+        '
+        'ExitProgram
+        '
+        Me.ExitProgram.Name = "ExitProgram"
+        Me.ExitProgram.Size = New System.Drawing.Size(149, 26)
+        Me.ExitProgram.Text = "Exit"
         '
         'Form_Hide
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(282, 255)
+        Me.ClientSize = New System.Drawing.Size(77, 13)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "Form_Hide"
         Me.Opacity = 0R

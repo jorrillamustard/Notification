@@ -46,4 +46,8 @@ Public Class Form_Configure
 
     End Sub
 
+    Private Sub btnRecreateDatabase_Click(sender As Object, e As EventArgs) Handles btnRecreateDatabase.Click
+        Form_Hide.AlertChecker.RecreateDatabase()
+
+    End Sub
 End Class

@@ -32,6 +32,9 @@ Partial Class Form_Configure
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.chkSound = New System.Windows.Forms.CheckBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.nmbMinuteWindow = New System.Windows.Forms.NumericUpDown()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.nmbCheckInterval = New System.Windows.Forms.NumericUpDown()
@@ -43,15 +46,13 @@ Partial Class Form_Configure
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.txtStatusStrip = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lblLastAlertCheck = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.nmbMinuteWindow = New System.Windows.Forms.NumericUpDown()
+        Me.btnRecreateDatabase = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.nmbMinuteWindow, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nmbCheckInterval, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nmbAlertTimeout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
-        CType(Me.nmbMinuteWindow, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtServer
@@ -160,6 +161,34 @@ Partial Class Form_Configure
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Alert Configuration"
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(239, 104)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(57, 17)
+        Me.Label6.TabIndex = 18
+        Me.Label6.Text = "minutes"
+        '
+        'nmbMinuteWindow
+        '
+        Me.nmbMinuteWindow.Location = New System.Drawing.Point(183, 102)
+        Me.nmbMinuteWindow.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
+        Me.nmbMinuteWindow.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.nmbMinuteWindow.Name = "nmbMinuteWindow"
+        Me.nmbMinuteWindow.Size = New System.Drawing.Size(52, 22)
+        Me.nmbMinuteWindow.TabIndex = 17
+        Me.nmbMinuteWindow.Value = New Decimal(New Integer() {5, 0, 0, 0})
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(8, 103)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(179, 17)
+        Me.Label5.TabIndex = 16
+        Me.Label5.Text = "Minute Window For Query: "
+        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -254,39 +283,21 @@ Partial Class Form_Configure
         Me.lblLastAlertCheck.Size = New System.Drawing.Size(117, 20)
         Me.lblLastAlertCheck.Text = "Last Alert Check:"
         '
-        'Label5
+        'btnRecreateDatabase
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(8, 103)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(179, 17)
-        Me.Label5.TabIndex = 16
-        Me.Label5.Text = "Minute Window For Query: "
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(239, 104)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(57, 17)
-        Me.Label6.TabIndex = 18
-        Me.Label6.Text = "minutes"
-        '
-        'nmbMinuteWindow
-        '
-        Me.nmbMinuteWindow.Location = New System.Drawing.Point(183, 102)
-        Me.nmbMinuteWindow.Maximum = New Decimal(New Integer() {276447231, 23283, 0, 0})
-        Me.nmbMinuteWindow.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.nmbMinuteWindow.Name = "nmbMinuteWindow"
-        Me.nmbMinuteWindow.Size = New System.Drawing.Size(52, 22)
-        Me.nmbMinuteWindow.TabIndex = 17
-        Me.nmbMinuteWindow.Value = New Decimal(New Integer() {5, 0, 0, 0})
+        Me.btnRecreateDatabase.Location = New System.Drawing.Point(12, 184)
+        Me.btnRecreateDatabase.Name = "btnRecreateDatabase"
+        Me.btnRecreateDatabase.Size = New System.Drawing.Size(166, 23)
+        Me.btnRecreateDatabase.TabIndex = 12
+        Me.btnRecreateDatabase.Text = "Re-Create Database"
+        Me.btnRecreateDatabase.UseVisualStyleBackColor = True
         '
         'Form_Configure
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(581, 245)
+        Me.Controls.Add(Me.btnRecreateDatabase)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -301,11 +312,11 @@ Partial Class Form_Configure
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.nmbMinuteWindow, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nmbCheckInterval, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nmbAlertTimeout, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
-        CType(Me.nmbMinuteWindow, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -335,4 +346,5 @@ Partial Class Form_Configure
     Friend WithEvents Label6 As Label
     Friend WithEvents nmbMinuteWindow As NumericUpDown
     Friend WithEvents Label5 As Label
+    Friend WithEvents btnRecreateDatabase As Button
 End Class
